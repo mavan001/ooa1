@@ -9,14 +9,17 @@ class MyException {
 typedef struct pqentry{
     float priority;
     string value;
-    struct pqentry *prev;
-    struct pqentry *next;
-}pqentry_t;
+    pqentry(float getPriority, string getValue);
+}
 
 class PriorityQueue {
 private:
     int _size;
     int _last;
+    pqentry **_entrys;
+    bool isFull(void);
+    bool isAlmostFull(void);
+    void changeArray(int Richtung);
 public:
     PriorityQueue(int size = 100);
     ~PriorityQueue(void);
