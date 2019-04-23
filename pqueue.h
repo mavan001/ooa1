@@ -3,6 +3,9 @@
 
 using namespace std;
 
+class MyException {
+};
+
 typedef struct pqentry{
     float priority;
     string value;
