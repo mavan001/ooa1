@@ -6,17 +6,18 @@ using namespace std;
 class MyException {
 };
 
-typedef struct pqentry{
+template <typename T>
+struct pqentry{
     float priority;
-    string value;
-    pqentry(float getPriority, string getValue);
+    T value;
+    pqentry(float getPriority, T getValue);
 }
 
 class PriorityQueue {
 private:
     int _size;
     int _last;
-    pqentry **_entrys;
+    pqentry **_entrys; //Array aus pqentry<T> Pointern
     bool isFull(void);
     bool isAlmostFull(void);
     void changeArray(int Richtung);
